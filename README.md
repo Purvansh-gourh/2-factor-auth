@@ -1,5 +1,4 @@
-"# 2-factor-auth" 
---------------------------------------------------------------<br/>
+# 2-factor-auth
 A project demonstrating the 2 factor authentication process<br/>
 for login system.
 ## Following factors are used for authentication :
@@ -26,12 +25,12 @@ API used : twilio (to send OTP to registered mobile number)
     
 4. using npm install necessary packages mentioned in package.json or run : npm install
 5. Setup other requirements
-   i. gmail account : to send mail as admin when user click forgot password<br/>
+   - gmail account : to send mail as admin when user click forgot password<br/>
     (Replace details in configure.js in configure directory with gmail details)
-   ii. twilio account : to send message using their API to send OTP<br/>
-    (After creating twilio account purchase a number using free credits available.<br/>
+   - twilio account : to send message using their API to send OTP<br/>
+    (After creating twilio account purchase a number using free credits available.
      Then copy paste accountSID, serviceID,phone and authToken in configure.js)<br/>
-    (Note : If you are using twilio trial account so numbers we send OTP to must<br/>
+    (Note : If you are using twilio trial account so numbers we send OTP to must
             be verified in console at twilio account dashboard.)
 
 ## Running the app
