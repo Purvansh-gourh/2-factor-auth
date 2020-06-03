@@ -1,0 +1,108 @@
+<%- include("./partials/header") %>
+
+<div class="container">
+    <div class="alert alert-info m-2 card">
+        <h1>Welcome to my CNS PROJECT <% if(currentUser && currentUser.verified){ %>
+            <%= currentUser.username %>
+            <% } %> </h1>
+    </div>
+
+    <% if(currentUser && currentUser.verified){ %>
+
+    <div class="card m-2">
+        <div class="row no-gutters">
+            <div class="col-md-4" id="profileimg" style="text-align: center;">
+
+                <img src="/noprofile.png" alt="No profile img available" style="border-radius: 50%;">
+
+            </div>
+            <div class="col-md-8">
+                <div class="card-body">
+                    <h5 class="card-title"><%= currentUser.username%> </h5>
+                    <div class="row">
+                        <div class="col">
+                            <table class="table table-hover">
+                                <tr>
+                                    <td>username</td>
+                                    <td>:</td>
+                                    <td><%= currentUser.username %> </td>
+                                </tr>
+                                <tr>
+                                    <td>email</td>
+                                    <td>:</td>
+                                    <td><%= currentUser.email %> </td>
+                                </tr>
+                                <tr>
+                                    <td>Phone</td>
+                                    <td>:</td>
+                                    <td><%= currentUser.phone %> </td>
+                                </tr>
+                                <tr>
+                                    <td>Phone verification</td>
+                                    <td>:</td>
+                                    <% if(currentUser.phoneStatus){ %>
+                                    <td>
+                                        <div class="row">
+                                            <div class="col">verified</div>
+                                            <div class="col"><i class="far fa-check-circle" style="color:green"></i>
+                                            </div>
+                                        </div>
+
+                                    </td>
+                                    <% }else{ %>
+                                    <td>
+                                        <div class="row">
+                                            <div class="col-5 col-md-5">Pending</div>
+                                            <div class="col-2 col-md-2"><img src="wrong.png"
+                                                    style="width: 1.2em;height: 1.2em">
+                                            </div>
+                                            <div class="col-5 col-md-5 text-right"><a
+                                                    href="/sendotp/<%= currentUser.id%>"
+                                                    class="btn btn-outline-success ">Verify Now</a></div>
+                                        </div>
+                                    </td>
+                                    <% } %>
+                                </tr>
+                                <tr>
+                                    <td>2 factor authentication</td>
+                                    <td>:</td>
+                                    <% if(currentUser.want2FA){ %>
+                                    <td>ON </td>
+                                    <% }else{ %>
+                                    <td>OFF</td>
+                                    <% } %>
+                                </tr>
+                            </table>
+                            <div class="row">
+                                <div class="col h-100">
+                                    <a href="/edit/<%= currentUser.id%>" class="btn btn-block btn-outline-success">Edit
+                                        User Profile</a>
+                                </div>
+                                <div class="col h-100">
+                                    <a href='/changepassword/<%= currentUser.id%>'
+                                        class="btn btn-block btn-outline-secondary">Change
+                                        Password</a>
+                                </div>
+                                <div class="col h-100">
+                                    <form class="d-inline" action="/delete/<%= currentUser.id %>" method="POST">
+                                        <button type="submit" class="btn btn-block btn-outline-danger"
+                                            onclick=" return confirm('Do you really want to delete your account')">Delete
+                                            Account</button>
+                                    </form>
+                                </div>
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <% }else{%>
+    <div class="card alert alert-danger m-2">
+        <h5>No user Logged In . <a href="/login" class="abarlink">Log In Now</a></h5>
+    </div>
+    <% } %>
+</div>
+
+<%- include("./partials/footer") %>

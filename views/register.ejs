@@ -1,0 +1,72 @@
+<%- include("./partials/header") %>
+<div class="container">
+    <div class="row justify-content-center">
+        <div class="col-lg-3 col-md-2 col-1"></div>
+        <div class="col-lg-6 col-md-8 col-10" id="inputForm">
+            <div class="container py-5">
+                <form action="/register" method="POST">
+                    <div class="alert alert-info" role="alert">
+                        <h4>New User Register</h4>
+                    </div>
+                    <div class="form-group">
+                        <label for="maalik">Username</label>
+                        <input type="text" class="form-control" id="maalik" name="user[username]"
+                            placeholder="Enter your username here" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="chitti">Email</label>
+                        <input type="email" class="form-control" id="chitti" name="user[email]"
+                            placeholder="Enter your email here" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="phone">Phone</label>
+                        <div class="input-group">
+                            <div class="input-group-prepend">
+                                <div class="input-group-text">+91</div>
+                            </div>
+                            <input type="text" class="form-control" id="phone" pattern="[0-9]{10}" minlength="10"
+                                maxlength="10" title="10 digit mobile number" placeholder="enter 10 digit mobile number"
+                                name="user[phone]">
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="kunji">password</label>
+                        <div class="input-group">
+                            <input type="password" class="form-control d-inline" id="kunji" pattern="[^\s]{4,}"
+                                placeholder="Enter your password here (min length 4)" minlength="4"
+                                title="password without spaces and min length 4" name="user[password]" required>
+                            <i class="fas fa-eye form-control" id="seePwd"
+                                style="max-width: 50px;text-align: center;line-height: 1.5;background-color:#e9ecef"></i>
+                        </div>
+                    </div>
+                    <div class="form-check mb-2">
+                        <input type="checkbox" checked class="form-check-input" id="faCheck" name="user[faCheck]">
+                        <label for="faCheck" class="form-check-label">2 Factor Authentication for every Login</label>
+                    </div>
+                    <div class="">
+                        <input type="submit" class="btn btn-primary w-100" value="Submit" />
+                    </div>
+                </form>
+                <a class="nav-link" href="/login">Already have an account ? Login here</a>
+            </div>
+        </div>
+        <div class="col-lg-3 col-md-2 col-1"></div>
+    </div>
+</div>
+
+
+
+<%- include("./partials/footer") %>
+<script>
+    $('#seePwd').on('click', function () {
+        // $('#kunji').attr('type', 'text');
+        $(this).toggleClass("fa-eye fa-eye-slash");
+        var input = $('#kunji');
+        if (input.attr("type") == "password") {
+            input.attr("type", "text");
+        } else {
+            input.attr("type", "password");
+        }
+    })
+</script>
