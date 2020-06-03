@@ -1,5 +1,5 @@
 # 2-factor-auth
-A project demonstrating the 2 factor authentication process<br/>
+A project demonstrating the 2 factor authentication process
 for login system.
 ## Following factors are used for authentication :
 1. Username and password as first verification step.
