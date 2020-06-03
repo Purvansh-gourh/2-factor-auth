@@ -1,0 +1,52 @@
+<%- include("./partials/header") %>
+<div class="container">
+    <div class="row justify-content-center">
+        <div class="col-lg-3 col-md-2 col-1"></div>
+        <div class="col-lg-6 col-md-8 col-10" id="inputForm">
+            <div class="container py-5">
+                <form action="/login" method="POST">
+                    <div class="alert alert-info" role="alert">
+                        <h4>User Login !</h4>
+                    </div>
+                    <div class="form-group">
+                        <label for="maalik">Username</label>
+                        <input type="text" class="form-control" id="maalik" name="username"
+                            placeholder="Enter your username here" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="kunji">password</label>
+                        <div class="input-group">
+                            <input type="password" class="form-control d-inline" id="kunji" name="password"
+                                placeholder="Enter your password here" required>
+                            <i class="fas fa-eye form-control" id="seePwd"
+                                style="max-width: 50px;text-align: center;line-height: 1.5;background-color:#e9ecef"></i>
+                        </div>
+                    </div>
+                    <div class="">
+                        <!-- <button type="submit" class="btn btn-primary mx-auto">Submit</button> -->
+                        <input type="submit" class="btn btn-primary w-100" value="Submit" />
+                    </div>
+                </form>
+                <a class="nav-link" href="/forgot">Forgot Password ? click here to reset</a>
+                <a class="nav-link pt-0" href="/register">Create account</a>
+            </div>
+        </div>
+        <div class="col-lg-3 col-md-2 col-1"></div>
+    </div>
+</div>
+
+
+
+<%- include("./partials/footer") %>
+<script>
+    $('#seePwd').on('click', function () {
+        // $('#kunji').attr('type', 'text');
+        $(this).toggleClass("fa-eye fa-eye-slash");
+        var input = $('#kunji');
+        if (input.attr("type") == "password") {
+            input.attr("type", "text");
+        } else {
+            input.attr("type", "password");
+        }
+    })
+</script>

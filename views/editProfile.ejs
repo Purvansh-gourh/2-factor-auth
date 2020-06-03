@@ -1,0 +1,48 @@
+<%- include("./partials/header") %>
+<div class="container">
+    <div class="row justify-content-center">
+        <div class="col-lg-3 col-md-2 col-1"></div>
+        <div class="col-lg-6 col-md-8 col-10" id="inputForm">
+            <div class="container py-5">
+                <form action="/edit/<%=currentUser.id%> " method="POST">
+                    <div class="alert alert-info" role="alert">
+                        <h4>Edit User Profile</h4>
+                    </div>
+                    <div class="form-group">
+                        <label for="maalik">Username</label>
+                        <input type="text" class="form-control" id="maalik" name="user[username]"
+                            value="<%= currentUser.username %> " required>
+                    </div>
+                    <div class="form-group">
+                        <label for="chitti">Email</label>
+                        <input type="email" class="form-control" id="chitti" name="user[email]"
+                            value="<%= currentUser.email %> " required>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="phone">Phone</label>
+                        <div class="input-group">
+                            <div class="input-group-prepend">
+                                <div class="input-group-text">+91</div>
+                            </div>
+                            <input type="text" class="form-control" id="phone" pattern="[0-9]{10}"
+                                title="10 digit mobile number" value="<%= currentUser.phone%>" name="user[phone]">
+                        </div>
+                    </div>
+                    <div class="form-check mb-2">
+                        <input type="checkbox" checked class="form-check-input" id="faCheck" name="user[faCheck]">
+                        <label for="faCheck" class="form-check-label">2 Factor Authentication for every Login</label>
+                    </div>
+                    <div class="">
+                        <input type="submit" class="btn btn-primary w-100" value="Submit" />
+                    </div>
+                </form>
+            </div>
+        </div>
+        <div class="col-lg-3 col-md-2 col-1"></div>
+    </div>
+</div>
+
+
+
+<%- include("./partials/footer") %>
