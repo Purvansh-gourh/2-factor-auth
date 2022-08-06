@@ -19,7 +19,7 @@
     "method-override": "^3.0.0",
     "mongoose": "^5.9.11",
     "nodemailer": "^6.4.6",
-    "otp-generator": "^1.1.0",
+    "otp-generator": "^3.0.0",
     "randombytes": "^2.1.0",
     "request": "^2.88.2",
     "twilio": "^3.43.0"
